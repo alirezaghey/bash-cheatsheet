@@ -50,5 +50,48 @@ Signal | Name | Description
 18     |`TSTP`| Stop or pause but continue to run in background
 19     |`CONT`| Resume execution after `STOP` or `TSTP`
 
+## Filesystem commands
+### `mount`
+**Mounts a filesystem or lists mounted filesystems**.
+```bash
+# show all mounted filesystems
+mount
+
+# show mounted filesystems of a specific filesystem type
+mount -t {{iso9660|ext4|vfat|fuseblk}}
+
+# mount a device to a directory
+mount -t {{filesystem_type}} {{path/to/device_file}} {{path/to/target_directory}}
+```
+
+### `umount`
+**Unmounts a filesystem.**
+```bash
+# unmount a filesystem
+umount {{path/to/target_directory|path/to/device_file}}
+```
+
+### `df`
+**Gives an overview of the disk space usage.**
+```bash
+# Display all filesystems and their disk usage:
+df
+
+# Display all filesystems of type ext4 and fat32 and their disk usage:
+df -t ext4 -t fat32
+```
+
+### `du`
+**Estimate and summerize file and directory space usage.**
+```bash
+# List the sizes of a directory and its subdirectories, possibly in (B/KB/MB)
+du [-{{b|k|m}}] {{path/to/directory}}
+
+# Show the size of a singly directory, in human readable units:
+du -sh {{path/to/directory}}
+
+# List the human-readable size of all .jpg files in subdirectories of the current directory, and show a total at the end:
+du -ch */*.jpg
+```
 ## Resources
 1- [Nice website](https://explainshell.com/) explaining bash commands.
