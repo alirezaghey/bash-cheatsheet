@@ -35,6 +35,9 @@ cat <<'EOF' |  sed 's/l/e/g'
 Hello
 World
 EOF
+# Output
+# Heeeo
+# Wored
 ```
 
 ## Linux Process Signals
