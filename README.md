@@ -30,7 +30,7 @@ You are logged in as: $(whoami)
 EOF
 ```
 ```bash
-# write heredoc output ot sed input
+# write heredoc output to sed input
 cat <<'EOF' |  sed 's/l/e/g'
 Hello
 World
