@@ -65,6 +65,24 @@ Dispaly dynamic real-time information about running processes.
 | `o` | add filter|
 | `=` | clear filters|
 
+### `ps`
+
+Information about running processes.
+
+```bash
+# List processes that belong to the current user and are running in the current terminal.
+ps
+
+# List all running processes.
+ps aux
+
+# List all running process including the full command string:
+ps auxww
+
+# List all processes that belong to a specific user in full format.
+ps --user $(id -u {{username}}) -f
+```
+
 ### Linux Process Signals
 
 | Signal | Name   | Description                                     |
