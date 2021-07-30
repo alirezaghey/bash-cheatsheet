@@ -189,6 +189,18 @@ done
 
 ```
 
+## User management
+
+### `useradd`
+
+```bash
+# create a new user
+useradd -m {{username}}
+
+# print or change default useradd configuration
+useradd -D
+```
+
 ## Resources
 
 1- [Nice website](https://explainshell.com/) explaining bash commands.
