@@ -150,6 +150,45 @@ du -sh {{path/to/directory}}
 du -ch */*.jpg
 ```
 
+## Variables
+
+### Arrays
+
+```bash
+# Creating an array
+nums=("zero" "one" "two" "three")
+# alternatively
+nums[0]="zero"
+nums[1]="one"
+nums[2]="two"
+nums[3]="three"
+
+# Accessing an array
+echo "${nums[0]}"           # Element #0
+echo "${nums[-1]}"          # Last element
+echo "${nums[@]}"           # All elements, space-separated
+echo "${#nums[@]}"          # Number of elements
+echo "${#nums}"             # String length of the 1st element
+echo "${#nums[3]}"          # String length of the Nth element
+echo "${nums[@]:3:2}"       # Range (from position 3, length 2)
+echo "${!nums[@]}"          # Keys of all elements, space-separated
+
+# Modifying an array
+nums=("${nums[@]}" "five")          # Push
+nums+=('five')                      # Also Push
+nums=( ${nums[@]/Ap*/} )            # Remove by regex match
+unset nums[2]                       # Remove one item
+nums=("${nums[@]}")                 # Duplicate
+nums=("${nums[@]}" "${Veggies[@]}") # Concatenate
+lines=(`cat "logfile"`)             # Read from file
+
+# Iterating over arrays
+for var in "${nums[@]}"; do
+  echo "$var"
+done
+
+```
+
 ## Resources
 
 1- [Nice website](https://explainshell.com/) explaining bash commands.
