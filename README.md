@@ -99,7 +99,7 @@ ps --user $(id -u {{username}}) -f
 
 ## Filesystem commands
 
-### Finding information about devices
+### Finding information about block devices
 
 ```bash
 lsblk
