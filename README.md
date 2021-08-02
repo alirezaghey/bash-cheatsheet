@@ -99,6 +99,26 @@ ps --user $(id -u {{username}}) -f
 
 ## Filesystem commands
 
+### Finding information about devices
+
+```bash
+lsblk
+# SATA and SCSI devices start `sd`
+# SSD devices start `nvme`
+# IDE devices start `hd`
+# you can also list the files under /dev/ to see all devices
+```
+
+### Creating partitions
+
+```bash
+# Creates a new partition; Can't extend a partition
+fdisk
+gdisk
+# Creates a new partition; Can extend a partition
+parted
+```
+
 ### `mount`
 
 **Mounts a filesystem or lists mounted filesystems**.
