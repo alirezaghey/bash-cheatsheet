@@ -149,6 +149,13 @@ mount -t {{filesystem_type}} {{path/to/device_file}} {{path/to/target_directory}
 umount {{path/to/target_directory|path/to/device_file}}
 ```
 
+### Check and repair filesystems
+
+```bash
+# Does not work on NTFS
+fsck
+```
+
 ### `df`
 
 **Gives an overview of the disk space usage.**
