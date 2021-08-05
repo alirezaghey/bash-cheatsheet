@@ -1,6 +1,6 @@
 # Bash Cheatsheet
 
-# HereDoc
+## HereDoc
 ```bash
 [COMMAND] <<[-] 'DELIMITER'
   HERE-DOCUMENT
@@ -36,6 +36,19 @@ Hello
 World
 EOF
 ```
+
+## Linux Process Signals
+Signal | Name | Description
+-------| -----| ----------
+1      | `HUP`| Hang up
+2      | `INT`| Interrupt
+3      |`QUIT`| Stop running
+9      |`KILL`| Unconditionally terminate
+11     |`SEGV`| Segment violation
+15     |`TERM`| Terminate if possible
+17     |`STOP`| Stop unconditionally but don't terminate
+18     |`TSTP`| Stop or pause but continue to run in background
+19     |`CONT`| Resume execution after `STOP` or `TSTP`
 
 ## Resources
 1- [Nice website](https://explainshell.com/) explaining bash commands.
