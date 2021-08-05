@@ -183,6 +183,28 @@ du -sh {{path/to/directory}}
 du -ch */*.jpg
 ```
 
+## Snap
+
+```bash
+# List all snap packages
+snap list
+
+# Find a snap package
+snap find {{package_name}}
+
+# Install a snap package
+snap install {{package_name}}
+
+# Update a package
+snap refresh {{package_name}}
+
+# Update all packages
+snap refresh
+
+# Uninstall a package
+snap remove {{package_name}}
+```
+
 ## Variables
 
 ### Arrays
