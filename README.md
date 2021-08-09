@@ -308,6 +308,17 @@ useradd -m {{username}}
 useradd -D
 ```
 
+## Misc
+
+```bash
+# Open last executed command in the default editor
+fc
+
+# List all built-in commands
+compgen -A builtin
+```
+
 ## Resources
 
 1- [Nice website](https://explainshell.com/) explaining bash commands.
+2- [Bash a-z](https://mywiki.wooledge.org/)
