@@ -219,6 +219,17 @@ var=$(ls -l)
 var=`ls -l | sed 's/ /_/g'`
 ```
 
+## Input/Output Redirection
+
+```bash
+# Redirect standard output to a file
+echo "Hello World" > file.txt   # creates a file or overwrites an existing file
+echo "Hello World" >> file.txt # creates a file or appends to an existing file
+
+# Redirect file output to command standard input
+wc < file.txt           # reads file and feeds it to wc
+```
+
 ## Variables
 
 ### Arrays
