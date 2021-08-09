@@ -205,6 +205,20 @@ snap refresh
 snap remove {{package_name}}
 ```
 
+## Command Substitution
+
+Command Sustitution allows you to put the output of a command directly into a variable.
+
+There are two methods of command substitution:
+
+```bash
+# The first method is to use the `$(here_goes_the_command)` syntax.
+var=$(ls -l)
+
+# The second method uses backticks `here_goes_the_command`.
+var=`ls -l | sed 's/ /_/g'`
+```
+
 ## Variables
 
 ### Arrays
