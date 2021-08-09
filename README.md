@@ -243,6 +243,20 @@ ls -a | sort
 ls -a |& sort
 # |& is equivalent to 2>&1 |
 
+
+
+## Arithmetic Expansion
+```bash
+# anything inside $(()) is arithmetically evaluated and the result is substiuted
+echo $((3+4))
+
+# combination of command sub-shell and arithmetic expansion
+echo $(($(echo 3+4)*2))
+
+# $[] is the old format arithmetic expansion and will be removed in the future
+echo $[3+4]
+```
+
 ## Variables
 
 ### Arrays
