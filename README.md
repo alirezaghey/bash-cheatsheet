@@ -308,6 +308,15 @@ useradd -m {{username}}
 useradd -D
 ```
 
+## Useful special parameters
+
+```bash
+# exit status of last executed command
+$?
+
+
+```
+
 ## Misc
 
 ```bash
