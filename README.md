@@ -258,6 +258,101 @@ echo $(($(echo 3+4)*2))
 echo $[3+4]
 ```
 
+## Conditionals
+
+**Note:** `[[` is actually a command/programm that has an exit code of 0 or one based on the evaluation of the expression. Any program that obeys the same logic, like base utils such as `grep` or `ping`, can be used in its stead.
+
+### string comparisons
+
+| Condition                        | Description                    |
+| -------------------------------- | ------------------------------ |
+| `[[ -z "$string" ]]`             | empty string                   |
+| `[[ -n "$string" ]]`             | non-empty string               |
+| `[[ "$string1" == "$string2" ]]` | string equality                |
+| `[[ "$string1" != "$string2" ]]` | string inequality              |
+| `[[ "$string" =~ regex ]]`       | regex string match             |
+| `[[ "$string1" < "$string2" ]]`  | string comparison less than    |
+| `[[ "$string1" > "$string2" ]]`  | string comparison greater than |
+
+### integer comparisons
+
+| Condition                   | Description                      |
+| --------------------------- | -------------------------------- |
+| `[[ "$int1" -eq "$int2" ]]` | integer equality                 |
+| `[[ "$int1" -ne "$int2" ]]` | integer inequality               |
+| `[[ "$int1" -lt "$int2" ]]` | integer less than                |
+| `[[ "$int1" -gt "$int2" ]]` | integer greater than             |
+| `[[ "$int1" -le "$int2" ]]` | integer less than or equal to    |
+| `[[ "$int1" -ge "$int2" ]]` | integer greater than or equal to |
+| `(( "$int1" == "$int2" ))`  | integer equality                 |
+| `(( "$int1" != "$int2" ))`  | integer inequality               |
+| `(( "$int1" < "$int2" ))`   | integer less than                |
+| `(( "$int1" > "$int2" ))`   | integer greater than             |
+| `(( "$int1" <= "$int2" ))`  | integer less than or equal to    |
+| `(( "$int1" >= "$int2" ))`  | integer greater than or equal to |
+
+**Note:** `((` syntax introduces indirection.
+
+### File comparisons
+
+| Condition                    | Description                 |
+| ---------------------------- | --------------------------- |
+| `[[ -e "$file" ]]`           | file exists                 |
+| `[[ -d "$file" ]]`           | file is a directory         |
+| `[[ -f "$file" ]]`           | file is a regular file      |
+| `[[ -h "$file" ]]`           | file is a symbolic link     |
+| `[[ -p "$file" ]]`           | file is a named pipe (FIFO) |
+| `[[ -r "$file" ]]`           | file is readable            |
+| `[[ -w "$file" ]]`           | file is writable            |
+| `[[ -s "$file" ]]`           | file size > 0 bytes         |
+| `[[ -x "$file" ]]`           | file is executable          |
+| `[[ "$file1" -nt "$file2"]]` | file1 is more recent        |
+| `[[ "$file1" -ot "$file2"]]` | file1 is less recent        |
+| `[[ "$file1" -ef "$file2"]]` | file1 is the same as file2  |
+
+### Logical operators
+
+| Operator                 | Description |
+| ------------------------ | ----------- |
+| `[[ expr1 && expr2 ]]`   | logical And |
+| `[[ expr1 \|\| expr2 ]]` | logical Or  |
+| `[[ ! expr ]]`           | logical Not |
+
+### Misc
+
+| Comparison          | Description   |
+| ------------------- | ------------- |
+| `[[-o "$optnmae"]]` | option is set |
+
+### Examples
+
+```bash
+# string
+if [[ -z "$string" ]]; then
+  echo "String is empty"
+elif [[ -n "$string" ]]; then
+  echo "String is not empty"
+else
+  echo "This never happens"
+fi
+
+# integer
+if [[ "$int1" -eq "$int2" ]]; then
+  echo "int1 is equal to int2"
+elif [[ "$int1" -gt "$int2" ]]; then
+  echo "int1 is greater than int2"
+else
+  echo "int1 is less than int2"
+fi
+
+# file
+if [[ -e "$file" ]]; then
+  echo "file exists"
+fi
+```
+
+_Keep in mind that there must be a space between the brackets and the condition_
+
 ## Variables
 
 ### Arrays
