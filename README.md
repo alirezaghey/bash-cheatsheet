@@ -51,19 +51,20 @@ EOF
 ### `top`
 
 Dispaly dynamic real-time information about running processes.
-|Shortcut | Description |
-|---------|--------------|
-|`h` | displays help|
-|`q` | quits|
-|`f\|F` | add/remove/sort fields|
-|`<\|>` | move sort field|
-|`k` | kill process|
-|`d\|s` | set update interval|
-| `P, M` | sort by CPU/memory usage|
-| `R` | reverse sort|
-| `L` | search for string|
-| `o` | add filter|
-| `=` | clear filters|
+
+| Shortcut | Description              |
+| -------- | ------------------------ |
+| `h`      | displays help            |
+| `q`      | quits                    |
+| `f\|F`   | add/remove/sort fields   |
+| `<\|>`   | move sort field          |
+| `k`      | kill process             |
+| `d\|s`   | set update interval      |
+| `P, M`   | sort by CPU/memory usage |
+| `R`      | reverse sort             |
+| `L`      | search for string        |
+| `o`      | add filter               |
+| `=`      | clear filters            |
 
 ### `ps`
 
@@ -235,17 +236,17 @@ wc < file.txt           # reads file and feeds it to wc
 Internally, bash opens a sub-shell for each command in a pipeline.
 Keep in mind that sub-shells have access to a copy of all the parent's shell variables and functions (exported or not). Any changes the sub-shell makes is lost to the parent shell.
 
-````bash
+```bash
 # pipe stdout of ls to stdin of sort
 ls -a | sort
 
 #pipe stdout and stderr of ls to stdin of sort
 ls -a |& sort
 # |& is equivalent to 2>&1 |
-
-
+```
 
 ## Arithmetic Expansion
+
 ```bash
 # anything inside $(()) is arithmetically evaluated and the result is substiuted
 echo $((3+4))
@@ -294,7 +295,7 @@ for var in "${nums[@]}"; do
   echo "$var"
 done
 
-````
+```
 
 ## User management
 
