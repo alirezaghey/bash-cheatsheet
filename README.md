@@ -284,12 +284,30 @@ echo $[3+4]
 | `[[ "$int1" -gt "$int2" ]]` | integer greater than             |
 | `[[ "$int1" -le "$int2" ]]` | integer less than or equal to    |
 | `[[ "$int1" -ge "$int2" ]]` | integer greater than or equal to |
-| `(( "$int1" == "$int2" ))`  | integer equality                 |
-| `(( "$int1" != "$int2" ))`  | integer inequality               |
-| `(( "$int1" < "$int2" ))`   | integer less than                |
-| `(( "$int1" > "$int2" ))`   | integer greater than             |
-| `(( "$int1" <= "$int2" ))`  | integer less than or equal to    |
-| `(( "$int1" >= "$int2" ))`  | integer greater than or equal to |
+
+The `(( ))` construct also allows a range of integer and bitwise operations as discussed in "Arithmetic Expansion" in addition to integer comparisons.
+
+| Condition                  | Description                      |
+| -------------------------- | -------------------------------- |
+| `(( "$int1" == "$int2" ))` | integer equality                 |
+| `(( "$int1" != "$int2" ))` | integer inequality               |
+| `(( "$int1" < "$int2" ))`  | integer less than                |
+| `(( "$int1" > "$int2" ))`  | integer greater than             |
+| `(( "$int1" <= "$int2" ))` | integer less than or equal to    |
+| `(( "$int1" >= "$int2" ))` | integer greater than or equal to |
+| `(( int++ ))`              | post-increment                   |
+| `(( int-- ))`              | post-decrement                   |
+| `(( ++int ))`              | pre-increment                    |
+| `(( --int ))`              | pre-decrement                    |
+| `(( int1*int2 ))`          | integer multiplication           |
+| `(( int1/int2 ))`          | integer division                 |
+| `(( int1%int2 ))`          | integer modulus                  |
+| `(( int1**int2 ))`         | integer exponentiation           |
+| `(( int1&int2 ))`          | bitwise AND                      |
+| `(( int1 \| int2 ))`       | bitwise OR                       |
+| `(( int1^int2 ))`          | bitwise XOR                      |
+| `(( int1<<int2 ))`         | bitwise left shift               |
+| `(( int1>>int2 ))`         | bitwise right shift              |
 
 **Note:** `((` syntax introduces indirection.
 
