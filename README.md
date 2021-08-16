@@ -402,6 +402,14 @@ done
 IFS=$IFSOLD
 ```
 
+### redirecting the output of loops
+
+```bash
+for line in "$file.txt"; do
+  echo "$line"
+done> output.txt
+```
+
 ## Variables
 
 ### Arrays
