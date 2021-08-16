@@ -371,6 +371,37 @@ fi
 
 _Keep in mind that there must be a space between the brackets and the condition_
 
+## Loops
+
+```bash
+# basic for loop
+for file in /path/to/files/*; do
+  echo "$file"
+done
+
+# C-like for loop
+for (( i=0; i<10; i++ )); do
+  echo "i is $i"
+done
+
+# ranges
+for i in {1..10}; do
+  echo "i is $i"
+done
+
+for i in {1..10..2}; do
+  echo "i is $i"
+done
+
+# reading from stdin
+IFSOLD=$IFS
+IFS=$'\n'
+cat file.txt | while read line; do
+  echo "$line"
+done
+IFS=$IFSOLD
+```
+
 ## Variables
 
 ### Arrays
