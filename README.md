@@ -463,12 +463,16 @@ useradd -D
 
 ## Useful special parameters
 
-```bash
-# exit status of last executed command
-$?
-
-
-```
+| Parameter | Description                                 |
+| --------- | ------------------------------------------- |
+| `$?`      | exit code of the last command               |
+| `$*`      | all positional parameters as a single word  |
+| `$@`      | all positional parameters as separate words |
+| `$#`      | number of positional parameters             |
+| `$$`      | expands to the process ID                   |
+| `$!`      | PID of the last background process          |
+| `$$`      | expands to the process ID of the shell      |
+| `$0`      | filename of the current shell               |
 
 ## Misc
 
