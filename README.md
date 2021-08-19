@@ -449,6 +449,27 @@ done
 
 ```
 
+## read input
+
+```bash
+# using echo and read
+echo -n "Enter your name: "
+read name
+
+# using read prompt
+read -p "Enter your name: " name
+
+# getting first and last name on the same line
+read -p "Enter your first and last name: " firstname, lastname
+```
+
+The following are simple applications of `getopt`, `getopts`, and a combination of interactive and command-line input.
+
+- [`getopt` example](./read_input/extractwithgetopt.sh)
+- [`getopts` example](./read_input/extractwithgetopts.sh)
+- [`getopts` with parameters example](./read_input/extractoptsparamswithgetopts.sh)
+- [`getopts` combined with interactive example](./read_input/CheckSystems.sh)
+
 ## User management
 
 ### `useradd`
