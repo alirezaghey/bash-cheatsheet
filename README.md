@@ -229,6 +229,33 @@ echo "Hello World" >> file.txt # creates a file or appends to an existing file
 
 # Redirect file output to command standard input
 wc < file.txt           # reads file and feeds it to wc
+
+# Redirect standard error to a file
+ls -l /etc/passwd 2> error.txt
+
+# Redirect standard output and standard error to a file
+# This is equivalent to 1> log.txt 2>&1
+# Note that 2>&1 1> log.txt is not correct because when stderr is redirected to stdout, still doesn't point to log.txt
+ls -l /etc/passwd &> log.txt
+
+# hide error and/or stdandar output
+ls -l /etc/passwd > /dev/null
+
+# Create additional file descriptors
+exec 3> file.txt
+echo "Hello World" >&3
+
+# Redirecting file descriptors and restore them
+exec 3>&1 # keep a copy of stdout
+exec 1> file.txt # redirect stdout to file
+
+echo "Hello World" # writes to file.txt
+echo "More Hello World" # writes to file.txt
+
+exec 1>&3 # restore stdout to original
+
+echo "Hello World" # writes to terminal
+
 ```
 
 ## Pipelines
