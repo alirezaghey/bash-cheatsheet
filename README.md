@@ -264,12 +264,12 @@ Internally, bash opens a sub-shell for each command in a pipeline.
 Keep in mind that sub-shells have access to a copy of all the parent's shell variables and functions (exported or not). Any changes the sub-shell makes is lost to the parent shell.
 
 ```bash
-# pipe stdout of ls to stdin of sort
+# pipe output of ls to input of sort
 ls -a | sort
 
-#pipe stdout and stderr of ls to stdin of sort
+# pipe standard and error output of ls to input of sort
+# this is equivalent to 2>&1 |
 ls -a |& sort
-# |& is equivalent to 2>&1 |
 ```
 
 ## Arithmetic Expansion
