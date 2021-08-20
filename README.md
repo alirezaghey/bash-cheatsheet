@@ -497,6 +497,20 @@ The following are simple applications of `getopt`, `getopts`, and a combination 
 - [`getopts` with parameters example](./read_input/extractoptsparamswithgetopts.sh)
 - [`getopts` combined with interactive example](./read_input/CheckSystems.sh)
 
+## temp files and directories
+
+```bash
+# create a temporary file with 4 random characters
+mktemp tempfile.XXXX
+
+# create a temporary directory with 4 random characters
+mktemp -d tempdir.XXXX
+
+# create a temporary file and store its name in a variable
+tempfile=$(mktemp tempfile.XXXX)
+
+```
+
 ## User management
 
 ### `useradd`
