@@ -511,6 +511,27 @@ tempfile=$(mktemp tempfile.XXXX)
 
 ```
 
+## using trap
+
+```bash
+# list available signals to trap:
+trap -l
+
+# list active traps for the current shell:
+trap -p
+
+# set a trap on one or more signals
+trap 'echo "Caught signal {{SIGHUP}}"' {{SIGHUP}}
+
+# reset named traps to original settings
+trap - {{SIGHUP}} {{SIGINT}}
+```
+
+### Examples
+
+- [trapping `SIGINT`](./signals/trap_sigint.sh)
+- [trapping `EXIT`](./signals/trap_exit.sh)
+
 ## User management
 
 ### `useradd`
