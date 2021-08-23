@@ -570,6 +570,60 @@ renice -n 10 -p PIDNumber
 
 ```
 
+## functions
+
+### defining and calling functions
+
+```bash
+# define a function
+function my_function_name {
+  # do something
+}
+# another form of defining a function
+my_function_name () {
+  # do something
+}
+
+# call a function
+my_function_name
+```
+
+### returning values from functions
+
+```bash
+# there a re 3 methods to return a value from a function
+# 1. default exit status
+my_function () {
+  echo "This is a function"
+}
+my_function
+echo "$? is the exit status of my_functions"
+echo "it is the exit status of the last command in the function"
+echo "you have to immediately retrieve it after the function is called or it will be filled with the exit status of the next command"
+
+# 2. return a value
+my_function2 () {
+  echo "This is a function"
+  return $(( $(date +%s) % 2 ))
+}
+my_function2
+echo "$? is the exit status of my_function2"
+echo "it is the returned value of the function"
+echo "keep in mind that the return value can only be an integer between 0 and 255"
+echo "the next method enables us to return a value of any type from the function"
+
+# 3. writing to the stdout
+my_function3 () {
+  read -p "Enter a value: " value
+  echo $(( value * 2))
+}
+result=$(my_function3)
+echo "the result of my_function3 is $result"
+echo "as you can see, bash is smart enough to distinguish between read's prompt and echo"
+echo "the first is written to the terminal while the echo output is returned as function output."
+echo "this would have been different if we used echo for read's prompt"
+```
+
 ## User management
 
 ### `useradd`
