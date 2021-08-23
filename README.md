@@ -532,6 +532,44 @@ trap - {{SIGHUP}} {{SIGINT}}
 - [trapping `SIGINT`](./signals/trap_sigint.sh)
 - [trapping `EXIT`](./signals/trap_exit.sh)
 
+## background jobs
+
+```bash
+# start a background job
+# this job will shut down if the parent process is killed
+command &
+
+# start a background job that will run even if the shell is closed
+# this job will lose access to stdout and stderr and will redirect all ouput to nohup.out
+nohub command &
+
+# view status of jobs assigned to the current shell
+# + means the default job
+# - means the next dfault job
+jobs
+
+# view status and PIDs of jobs assigned to the current shell
+jobs -l
+
+# restart default job in the background if it has stopped
+bg
+
+# restart a job by job number
+bg 2
+
+# restart a job in forground
+fg 2
+
+# start a job in the background and set its niceness
+# nice values are -20 to 19
+# for nice values less than 0 you must have super user privileges
+nice -n 10 command > command.out &
+
+# renice a job
+renice -n 10 -p PIDNumber
+
+```
+
 ## User management
 
 ### `useradd`
