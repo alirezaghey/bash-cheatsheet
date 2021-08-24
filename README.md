@@ -624,6 +624,45 @@ echo "the first is written to the terminal while the echo output is returned as 
 echo "this would have been different if we used echo for read's prompt"
 ```
 
+### using variables in functions
+
+````bash
+# bash handles functions as mini-scripts
+# passing parameter to functions is like passing them to scripts
+my_function () {
+  echo "There are $# parameters passed to the function"
+  count=1
+  for arg in "$@"; do
+    echo "parameter $count is $arg"
+    count=$(( count + 1 ))
+}
+
+my_function one two three four five
+# writes:
+# "parameter 1 is one"
+# "parameter 2 is two"
+# ...
+
+# keep in mind that numbered parameters are local to the function
+# functions don't have access to the parameters of the calling script
+
+# functions have two types of variables:
+# 1. local variables
+# 2. global variables
+
+# global variables are the default and global variables declared inside the function can be access from anywhere in the script, as the global variables declared in the script can be accessed from inside the function
+my_function2 () {
+  echo "This function doubles the 'value' variable declared in the calling script"
+  value=$(( value * 2 ))
+  echo "The double 'value' is $value"
+}
+variable=10
+my_function2
+
+# we can make all the variables the are only needed inside the function local to the function
+# local variabels are created by the use of the local keyword
+local value=10
+
 ## User management
 
 ### `useradd`
@@ -634,7 +673,7 @@ useradd -m {{username}}
 
 # print or change default useradd configuration
 useradd -D
-```
+````
 
 ## Useful special parameters
 
