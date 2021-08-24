@@ -663,6 +663,58 @@ my_function2
 # local variabels are created by the use of the local keyword
 local value=10
 
+
+# passing in arrays to functions is slightly more complicated
+function test_array () {
+  echo "The parameters are: $@"
+  thisarray=$1
+  echo "The received array is ${thisarray[*]}"
+}
+myarray=(1 2 3 4 5)
+echo "The original array is: ${myarray[*]}"
+test_array $myarray
+
+# will output:
+# The original array is: 1 2 3 4 5
+# The parameters are: 1
+# the received array is 1
+
+# the following method is used to pass arrays to functions
+function test_array2 () {
+  local newarray
+  newarray=( $(echo "$@") )
+  echo "The new array value is: ${newarray[*]}"
+}
+
+myarray=(1 2 3 4 5)
+echo "The original array is: ${myarray[*]}"
+test_array2 ${myarray[*]}
+
+# will output:
+# The original array is: 1 2 3 4 5
+# The new array value is: 1 2 3 4 5
+
+
+
+# returning an array from a function follows a similar technique
+function arraydblr () {
+        local new_array=( $(echo "$@") )
+        local num_elements=$(( $# - 1 ))
+
+        for (( i = 0; i <= num_elements; i++ ))
+        {
+                new_array[$i]=$(( new_array[$i] * 2 ))
+        }
+        echo ${new_array[*]}
+}
+
+myarray=(1 2 3 4 5)
+echo "The original array is: ${myarray[*]}"
+arg1=$(echo ${myarray[*]})
+result=( $( arraydblr $arg1 ) )
+echo "The new array is: ${result[*]}"
+```
+
 ## User management
 
 ### `useradd`
