@@ -713,6 +713,21 @@ echo "The original array is: ${myarray[*]}"
 arg1=$(echo ${myarray[*]})
 result=( $( arraydblr $arg1 ) )
 echo "The new array is: ${result[*]}"
+
+# example recursive function
+function factorial () {
+  if [[ $1 -eq 1 ]]; then
+    echo 1
+  else
+    local temp=$(( $1 - 1))
+    local result=$(factorial $temp)
+    echo $(( $1 * $result ))
+  fi
+}
+
+read -p "Enter a number: " num
+result=$(factorial $num)
+echo "The result of factorial $num is $result"
 ```
 
 ## User management
