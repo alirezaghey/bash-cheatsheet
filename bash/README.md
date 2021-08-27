@@ -767,7 +767,7 @@ compgen -A builtin
 
 ## Resources
 
-1- [Nice website](https://explainshell.com/) explaining bash commands.
-2- [Bash a-z](https://mywiki.wooledge.org/)
-3- [Bash spell checker](https://www.shellcheck.net/)
-4- [Bash online manual](https://www.gnu.org/software/bash/manual/html_node/)
+1. [Nice website](https://explainshell.com/) explaining bash commands.
+2. [Bash a-z](https://mywiki.wooledge.org/)
+3. [Bash spell checker](https://www.shellcheck.net/)
+4. [Bash online manual](https://www.gnu.org/software/bash/manual/html_node/)
