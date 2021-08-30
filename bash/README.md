@@ -765,6 +765,11 @@ fc
 compgen -A builtin
 ```
 
+## Creating a menu
+
+1- [Simple command based menu](./create_menu/menu1.sh)
+![menu1 in action](./img/menu1.png "menu1 in action")
+
 ## Resources
 
 1. [Nice website](https://explainshell.com/) explaining bash commands.
