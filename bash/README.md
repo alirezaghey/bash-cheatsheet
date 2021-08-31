@@ -772,6 +772,9 @@ compgen -A builtin
 2- [Simple command based menu using `select`](./create_menu/menu2.sh)
 ![menu2 in action](./img/menu2.png "menu2 in action")
 This method uses the built-in `select` command to display a menu and execute the selected command. It helps to avoid the lengthy `echo` command in the previous method but it gives you less control over the menu which makes it less suitable for long menus. `select` is also bash specific and not available on many other shells. For these reasons it is recommended to use the previous method.
+3- [Fancy menus using the `dialog` package](./create_menu/menu3.sh)
+![menu3 in action](./img/menu3.png "menu3 in action")
+4- Some popular windowed options are `zenity` and `gdialog` on GNOME and `kdialog` on KDE.
 
 ## Resources
 
