@@ -771,6 +771,45 @@ sed -f script1.sed data1.txt
 
 ```
 
+## gawk
+
+`gawk` is a more advanced tool than `sed` for manipulating data in a file. It provides a more programming-like environment allowing the modification and reorganization of data in a file.
+Within the `gawk` programming language the following is possible:
+
+- Define variables to store data.
+- Use arithmetic and string operators to operate on data
+- Use structured programming concepts, such as conditionals and loops to add logic to your data processing.
+- Generate formatted reports by exracting data elements within the data file and repositioning them in another order or format.
+
+The basic `gawk` format is as follows: **`gawk`**_`options program file`_
+Here's a rundown of the options:
+
+| Option               | Description                                                      |
+| -------------------- | ---------------------------------------------------------------- |
+| `-F`_`fs`_           | Specifies a file separator for delineating data fields in a line |
+| `-f`_`file`_         | Specifies a filename to read the program from                    |
+| `-v`_`var = value`_  | Defines a variable and default value used in the `gawk` program  |
+| `-L [`_`keyword`_`]` | Specifies the compatibility mode or warning level for `gawk`     |
+
+`gawk` scripts are defined within `{}` blocks. since `gawk` command line assumes that the script is a single text string, you must enclose your script in single quotation marks.
+
+```bash
+# Since gawk works on input lines this line prints nothing
+# but expect you to type at the prompt
+# for each inputted line, it writes "Hello world" to stdout
+# regradless of the input
+# sending a EOF (Ctrl+D) will terminate the command
+gawk '{print "Hello world!"}'
+```
+
+One of the primary features of `gawk` is its ability to manipulate data in a file. It does this by automatically assigning a variable to each data element in a line. By default `gawk` has the following variables:
+| Variable | Description |
+| -------- | ----------- |
+| `$0` | The entire line of text |
+| `$1` | The first data element in the line |
+| `$2` | The second data element in the line |
+| `$n` | The nth data element in the line |
+
 ## User management
 
 ### `useradd`
