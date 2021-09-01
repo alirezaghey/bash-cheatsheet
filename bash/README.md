@@ -626,7 +626,7 @@ echo "this would have been different if we used echo for read's prompt"
 
 ### using variables in functions
 
-````bash
+```bash
 # bash handles functions as mini-scripts
 # passing parameter to functions is like passing them to scripts
 my_function () {
@@ -740,7 +740,7 @@ useradd -m {{username}}
 
 # print or change default useradd configuration
 useradd -D
-````
+```
 
 ## Useful special parameters
 
