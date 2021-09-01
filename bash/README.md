@@ -730,6 +730,47 @@ result=$(factorial $num)
 echo "The result of factorial $num is $result"
 ```
 
+## sed
+
+The general form of `sed` is as follows: `sed options script file`, while the options are:
+
+| Option        | Description                                                                            |
+| ------------- | -------------------------------------------------------------------------------------- |
+| `-e commands` | Adds additional sed commands to run while processing the input                         |
+| `-f file`     | Adds the commands specified in the file to the commands run while processing the input |
+| `-n`          | Doesn't produce output for each command, but waits for the print (p) command           |
+
+The `script` parameter specifies a single command against the data stream. If more than one command is required, you must use either the `-e` option to specify them in the command line or the `-f` option to specify them in a separate file.
+
+```bash
+# using `s` to substitute a text string with another
+# prints "This is a big test"
+echo "This is a test" | sed 's/test/big test/'
+
+# reads data1.txt and substitutes "dog" with "cat".
+# writing the modified output to stdout
+sed 's/dog/cat/' data1.txt
+
+# using multiple editor commands in the command line
+# each command is applied to every line.
+# commands must be separated with a ";"
+# there shouldnt' be any space between the preceding command and the ";"
+# substitutes "brown" with "red" and "dog" with "cat"
+sed -e 's/brown/red/; s/dog/cat' data1.txt
+
+# using the secondary prompt in bash shell
+sed -e '
+> s/brown/green/
+> s/fox/toad/
+> s/dog/cat/' data1.txt
+
+# using a script file
+# the file contains each command on a seprate line
+sed -f script1.sed data1.txt
+
+
+```
+
 ## User management
 
 ### `useradd`
