@@ -749,20 +749,20 @@ echo "This is a test" | sed 's/test/big test/'
 
 # reads data1.txt and substitutes "dog" with "cat".
 # writing the modified output to stdout
-sed 's/dog/cat/' data1.txt
+sed 's/dog/cat/' ./gawk_sed/data1.txt
 
 # using multiple editor commands in the command line
 # each command is applied to every line.
 # commands must be separated with a ";"
 # there shouldnt' be any space between the preceding command and the ";"
 # substitutes "brown" with "red" and "dog" with "cat"
-sed -e 's/brown/red/; s/dog/cat' data1.txt
+sed -e 's/brown/red/; s/dog/cat' ./gawk_sed/data1.txt
 
 # using the secondary prompt in bash shell
 sed -e '
 > s/brown/green/
 > s/fox/toad/
-> s/dog/cat/' data1.txt
+> s/dog/cat/' ./gawk_sed/data1.txt
 
 # using a script file
 # the file contains each command on a seprate line
