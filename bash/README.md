@@ -820,7 +820,7 @@ useradd -m {{username}}
 
 # print or change default useradd configuration
 useradd -D
-```
+````
 
 ## Useful special parameters
 
