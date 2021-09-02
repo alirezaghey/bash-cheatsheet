@@ -810,6 +810,67 @@ One of the primary features of `gawk` is its ability to manipulate data in a fil
 | `$2` | The second data element in the line |
 | `$n` | The nth data element in the line |
 
+Data fields are determined in a text line by a _field separation character_ which is specified by the `-F` option. This option sets the `FS` field. The default field separation character in `gawk` is any whitespace character.
+
+```bash
+# considering a text file with words separated by spaces
+# the following will print the first word in each line
+gawk '{print $1}' ./gawk_sed/data2.txt
+```
+
+When the file uses a different field separation character, specify the character using the `-F` option.
+
+```bash
+# prints the first field in each line in /etc/passwd
+# which is the user namec
+gawk -F: `{print $1}` /etc/passwd
+```
+
+To use multiple commands in the `gawk` script, separate them with a semicolon.
+
+```bash
+# Changes the 4th field and pritns the line
+# prints "My name is Christine"
+echo "My name is Rich" | gawk '{$4 = "Christine"; print $0}'
+```
+
+Using secondary prompt to run the same command as above
+
+```bash
+gawk '{
+  > $4 = "Christine"
+  > print $0}'
+My name is Rich
+# prints "My name is Christine"
+# Note that since we didn't provide a filename, gawk retrieves data
+# from stdin. To send EOF to gawk to signal the end of input, press (Ctrl+D)
+```
+
+We can also store our `gawk` scripts in a file. This [script](./gawk_sed/script2.gawk) reads the `/etc/passwd` file and prints the user name and the home directory for each user.
+
+```bash
+gawk -F: -f ./gawk_sed/script1.gawk /etc/passwd
+# prints something similar to the following
+# root's home directory is /root
+# user1's home directory is /home/user1
+# ...
+```
+
+By default, `gawk` applies the program script to each line of input. If you want to run something just at the beginning or end of the input, use the `Begin {}` and `End {}` blocks at the start and end of the script.
+This example [script](./gawk_sed/script2.gawk) reads the `/etc/passwd` file and prints the user name and default shell for each user. It adds a header and footer to the output.
+
+````bash
+gawk -f script2.gawk /etc/passwd
+# prints something similar to the following
+# The latest list of users and shells
+# UserId          Shell
+#--------         ---------
+# root             /bin/bash
+# daemon           /usr/sbin/nologin
+# ...
+# This concludes the listing
+```
+
 ## User management
 
 ### `useradd`
