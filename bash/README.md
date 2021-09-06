@@ -817,6 +817,51 @@ sed -n 's/test/trial/w output.txt' ./gawk_sed/data4.txt
 sed 's!/bin/bash!/bin/csh!' /etc/passwd
 ```
 
+### using addresses
+
+By default commands you use in the `sed` editro apply to all lines of text. If you want to apply a command only to a specific line or group of lines, you must use line addressing.
+
+There are two types of line addressing in `sed`:
+
+- numeric range of lines
+- text patterns
+
+Both forms use very similar formats:
+
+`[numerical address]s/pattern/replacement/flags`<br>
+`/[text address]/s/pattern/replacement/flags`
+
+#### numeric addresses
+
+```bash
+# replaces the match only on line 2
+sed '2s/dog/cat/' ./gawk_sed/data1.txt
+
+# replaces the match on lines 2 through to 3
+sed '2,3s/dog/cat/' ./gawk_sed/data1.txt
+
+# replaces the match on lines 2 through to the end
+sed '2,$s/dog/cat/' ./gawk_sed/data1.txt
+```
+
+#### text pattern addresses
+
+```bash
+# only acts on lines that contain the word "rich"
+sed '/rich/s/bash/csh/' /etc/passwd
+```
+
+### grouping commands
+
+If you need to run multiple commands on an individual line, group them together using braces.
+
+```bash
+sed '2{
+> s/fox/toad/
+> s/dog/cat/
+}' ./gawk_sed/data1.txt
+```
+
 ## gawk
 
 `gawk` is a more advanced tool than `sed` for manipulating data in a file. It provides a more programming-like environment allowing the modification and reorganization of data in a file.
