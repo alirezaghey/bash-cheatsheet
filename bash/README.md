@@ -808,6 +808,15 @@ sed -n 's/test/trial/w output.txt' ./gawk_sed/data4.txt
 
 ```
 
+### replacing the string delimiter
+
+`sed` uses `/` as the delimiter for the pattern and replacement, but `/` is also used in many other places like for delimiting file names. To avoid escaping the delimiter, `sed` lets you change the delimiter.
+
+```bash
+# changes the default shell from bash to csh
+sed 's!/bin/bash!/bin/csh!' /etc/passwd
+```
+
 ## gawk
 
 `gawk` is a more advanced tool than `sed` for manipulating data in a file. It provides a more programming-like environment allowing the modification and reorganization of data in a file.
