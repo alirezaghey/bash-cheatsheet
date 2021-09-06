@@ -859,7 +859,7 @@ gawk -F: -f ./gawk_sed/script1.gawk /etc/passwd
 By default, `gawk` applies the program script to each line of input. If you want to run something just at the beginning or end of the input, use the `Begin {}` and `End {}` blocks at the start and end of the script.
 This example [script](./gawk_sed/script2.gawk) reads the `/etc/passwd` file and prints the user name and default shell for each user. It adds a header and footer to the output.
 
-````bash
+```bash
 gawk -f script2.gawk /etc/passwd
 # prints something similar to the following
 # The latest list of users and shells
@@ -881,7 +881,7 @@ useradd -m {{username}}
 
 # print or change default useradd configuration
 useradd -D
-````
+```
 
 ## Useful special parameters
 
