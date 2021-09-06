@@ -771,6 +771,43 @@ sed -f script1.sed data1.txt
 
 ```
 
+### substituting flags
+
+Flags have the following form: _`s/pattern/replacement/flags`_
+
+Four types of flags are supported:
+|flag | description|
+|-----| -----------|
+|`#number` | indicates the pattern occurence for which the text should be substituted |
+|`g` | indicates that new text should be substituted for all occurences of existing text|
+|`p` | indicates that the content of the original line should be written to stdout|
+|`w file` | indicates to write the results of substitution to a file|
+
+```bash
+# replaces the second occurence of "test" with trial
+sed 's/test/trial/2' ./gawk_sed/data3.txt
+# outputs:
+# One line of test text for trialing text and test.
+# Two line of test text for trialing text and test.
+# ...
+
+# replaces all occurences of "test" with "trial"
+sed 's/test/trial/g' ./gawk_sed/data3.txt
+# One line of trial text for trialing text and trial.
+# Two line of trial text for trialing text and trial.
+# ...
+
+# the p flag is mostly used in combination with the -n option.
+# the -n option suppresses sed's output, but the p flag prints only those lines that have been affected by the substitution. This will effectively filter out non-matching lines.
+sed -n 's/test/trial/p' ./gawk_sed/data4.txt
+# outputs:
+# This is a trial line.
+
+# the w flag produces the same result as the p flag, but writes the results to a file
+sed -n 's/test/trial/w output.txt' ./gawk_sed/data4.txt
+
+```
+
 ## gawk
 
 `gawk` is a more advanced tool than `sed` for manipulating data in a file. It provides a more programming-like environment allowing the modification and reorganization of data in a file.
