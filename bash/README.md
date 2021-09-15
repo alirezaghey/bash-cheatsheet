@@ -122,11 +122,12 @@ parted
 
 ### Creating a filesystem
 
-````bash
+```
 mkfs.ext2, mkfs.ext3, mkfs.ext4        # create an ext2/3/4 filesystem
 mkfs.fat                               # create a FAT filesystem
 mkfs.ntfs                              # create a NTFS filesystem
 ### `mount`
+```
 
 **Mounts a filesystem or lists mounted filesystems**.
 
@@ -139,7 +140,7 @@ mount -t {{iso9660|ext4|vfat|fuseblk}}
 
 # mount a device to a directory
 mount -t {{filesystem_type}} {{path/to/device_file}} {{path/to/target_directory}}
-````
+```
 
 ### `umount`
 
