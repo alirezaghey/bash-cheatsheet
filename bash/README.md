@@ -128,6 +128,17 @@ mkfs.fat                               # create a FAT filesystem
 mkfs.ntfs                              # create a NTFS filesystem
 ### `mount`
 ```
+**Lists all recognied partitions and their UUIDs**
+```bash
+# using UUIDs is prefered for mounting when used in scripts or fstab
+# UUIDs also work when disks are added and removed.
+
+# List all partitions
+sudo blkid
+
+# List all partitions in a table, including current mountpoints
+sudo blkid -o list
+```
 
 **Mounts a filesystem or lists mounted filesystems**.
 
